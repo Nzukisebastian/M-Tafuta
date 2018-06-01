@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Lost&amp;foundApp</string>
+    <string name="found_Items"><u><b><i>Found_items</i></b></u></string>
+    <string name="action_settings">Settings</string>
+    <string name="red_string">Report lost item</string>
+    <string name="post_string">Post lost item</string>
+    <string name="green_string">Call Customer care</string>
+    <string name="yellow_string">Message Customer care</string>
+
+    <string name="nameerror">Enter Valid Name</string>
+    <string name="emailerror">Enter Valid Email</string>
+    <string name="passworderror">Enter Some Password</string>
+    <string name="mobileerror">Enter Valid Mobile Number</string>
+
+</resources>
