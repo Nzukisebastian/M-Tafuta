@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "225315828041",
+    "firebase_url": "https://m-tafuta-11fba.firebaseio.com",
+    "project_id": "m-tafuta-11fba",
+    "storage_bucket": "m-tafuta-11fba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225315828041:android:b7b60a8e7207eb5e",
+        "android_client_info": {
+          "package_name": "com.example.sebastian.lostfoundapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225315828041-mfjssrk5g8fl83aru3jhrqpt9upqiniq.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "225315828041-mfjssrk5g8fl83aru3jhrqpt9upqiniq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3FEKe9CMJUX-D9yYmUPQz9YW_GDaT4Gk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

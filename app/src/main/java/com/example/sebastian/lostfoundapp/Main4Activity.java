@@ -42,7 +42,7 @@ public class Main4Activity extends AppCompatActivity {
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                startActivity(new Intent(this,Reportitem.class));
+                startActivity(new Intent(this,Report.class));
                 //main_view.setBackgroundColor(Color.RED);
                 return true;
             case R.id.menu_green:
