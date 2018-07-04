@@ -81,7 +81,7 @@ public class Main4Activity extends AppCompatActivity {
             }
     public void image(View view){
 
-        startActivity(new Intent(this, Main2Activity.class));
+        startActivity(new Intent(this, Gallary.class));
     }
     public void info(View view){
 
