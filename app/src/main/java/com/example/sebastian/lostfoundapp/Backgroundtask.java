@@ -129,6 +129,7 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
         else{
             Toast.makeText(context,result,Toast.LENGTH_LONG).show();
         }
+        //we are
     }
 
     @Override
