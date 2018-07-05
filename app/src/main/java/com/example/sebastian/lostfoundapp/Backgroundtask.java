@@ -114,7 +114,7 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
             progressDialog.dismiss();
         if(result!=null && result.equals("login success")){
             Toast.makeText(context,result,Toast.LENGTH_LONG).show();
-        Intent i=new Intent(context,Main2Activity.class);
+        Intent i=new Intent(context,Gallary.class);
         context.startActivity(i);
 
     }else if(result!=null && result.equals("successfully registred")){
