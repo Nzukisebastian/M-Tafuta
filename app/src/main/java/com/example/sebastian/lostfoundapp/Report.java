@@ -1,7 +1,6 @@
 package com.example.sebastian.lostfoundapp;
 
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Report extends AppCompatActivity implements View.OnClickListener{
+public class Report extends BaseActivity implements View.OnClickListener{
 
     EditText report;
     private Button buttonSubmit;

@@ -2,7 +2,6 @@ package com.example.sebastian.lostfoundapp;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity extends BaseActivity {
     String data="";
     String json_string;
 

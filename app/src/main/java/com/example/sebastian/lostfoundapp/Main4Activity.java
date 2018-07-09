@@ -2,7 +2,6 @@ package com.example.sebastian.lostfoundapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,7 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class Main4Activity extends AppCompatActivity {
+public class Main4Activity extends BaseActivity{
 
     Button click;
     public static TextView data;

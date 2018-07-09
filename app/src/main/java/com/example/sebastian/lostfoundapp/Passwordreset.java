@@ -1,12 +1,11 @@
 package com.example.sebastian.lostfoundapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class Passwordreset extends AppCompatActivity {
+public class Passwordreset extends BaseActivity {
 
     WebView mywebView;
     @Override

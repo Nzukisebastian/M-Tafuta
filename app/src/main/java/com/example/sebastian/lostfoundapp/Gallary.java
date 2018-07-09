@@ -1,7 +1,6 @@
 package com.example.sebastian.lostfoundapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +14,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Gallary extends AppCompatActivity {
+public class Gallary extends BaseActivity {
 
     private RecyclerView recyclerViews;
     private ProgressBar progressBar;

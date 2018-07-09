@@ -2,14 +2,13 @@ package com.example.sebastian.lostfoundapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-public class Fulldetails extends AppCompatActivity {
+public class Fulldetails extends BaseActivity{
 
 ImageView imgs;
    private TextView title,description;

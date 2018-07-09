@@ -1,11 +1,10 @@
 package com.example.sebastian.lostfoundapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class Reportitem extends AppCompatActivity {
+public class Reportitem extends BaseActivity {
 EditText report;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 
-public class Phonecall extends AppCompatActivity {
+public class Phonecall extends BaseActivity {
 
     EditText edittext1;
     Button button1;
