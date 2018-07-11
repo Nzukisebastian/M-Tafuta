@@ -65,7 +65,7 @@ public class Main4Activity extends BaseActivity{
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                startActivity(new Intent(this,Uploadimage.class));
+                startActivity(new Intent(this,Handleimage.class));
                 //main_view.setBackgroundColor(Color.YELLOW);
                 return true;
             default:

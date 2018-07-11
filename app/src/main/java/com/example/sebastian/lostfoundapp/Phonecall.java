@@ -12,7 +12,6 @@ import android.content.Intent;
 
 public class Phonecall extends BaseActivity {
 
-    EditText edittext1;
     Button button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,7 @@ public class Phonecall extends BaseActivity {
         setContentView(R.layout.activity_phonecall);
 
         //Getting the edittext and button instance
-        edittext1=(EditText)findViewById(R.id.editText1);
+       // edittext1=(EditText)findViewById(R.id.editText1);
         button1=(Button)findViewById(R.id.button1);
 
         //Performing action on button click
@@ -28,7 +27,7 @@ public class Phonecall extends BaseActivity {
 
             @Override
             public void onClick(View arg0) {
-                String number=edittext1.getText().toString();
+                String number="0700352820";
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:"+number));
                 startActivity(callIntent);

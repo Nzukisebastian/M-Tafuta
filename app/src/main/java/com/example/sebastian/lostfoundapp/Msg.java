@@ -11,14 +11,12 @@ import android.widget.Toast;
 
 public class Msg extends BaseActivity {
 
-    EditText mobileno,message;
+    EditText message;
     Button sendsms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_msg);
-
-        mobileno=(EditText)findViewById(R.id.editText1);
         message=(EditText)findViewById(R.id.editText2);
         sendsms=(Button)findViewById(R.id.button1);
 
@@ -27,7 +25,7 @@ public class Msg extends BaseActivity {
 
             @Override
             public void onClick(View arg0) {
-                String no=mobileno.getText().toString();
+                String no="0700352820";
                 String msg=message.getText().toString();
 
                 //Getting intent and PendingIntent instance

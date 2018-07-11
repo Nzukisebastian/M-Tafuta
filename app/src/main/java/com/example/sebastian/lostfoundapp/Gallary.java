@@ -1,11 +1,13 @@
 package com.example.sebastian.lostfoundapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.List;
@@ -123,4 +125,19 @@ public class Gallary extends BaseActivity {
         startActivity(new Intent(this, Main4Activity.class));
     }
 
+    public void onRadioButtonClicked(View view) {
+
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        RadioButton radioButton=(RadioButton)findViewById(R.id.radio_pirates);
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_pirates:
+                if (checked)
+                    radioButton.setBackgroundColor(Color.BLUE);
+                    // Pirates are the best
+                    break;
+        }
+    }
 }

@@ -32,7 +32,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColorHint="#070707"
-        android:text="Enter the details of your lost item..." />
+        android:hint="Enter the details of the lost item" />
 
     <Button
         android:layout_width="wrap_content"
