@@ -16,12 +16,12 @@
         android:layout_alignParentEnd="true">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="106dp"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
             android:text="@string/found_Items"
             android:onClick="image"
             android:textColorLink="#070707"
-            android:textColor="#faf5f5"
+            android:textColor="#040404"
             android:background="#3F51B5"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
@@ -32,13 +32,13 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="106dp"
+            android:layout_height="62dp"
             android:text="Lost Items"
             android:onClick="info"
             android:id="@+id/button"
             android:textColorLink="#fa0303"
-            android:textColor="#faf5f5"
-            android:background="#3F51B5"
+            android:textColor="#060606"
+            android:background="@android:color/background_light"
             android:textStyle="bold"
             android:textSize="20dp"/>
         <LinearLayout
@@ -71,11 +71,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radio_pirates"
-        android:layout_marginRight="105dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginRight="130dp"
+        android:layout_marginEnd="50dp"
         android:onClick="onRadioButtonClicked"
-        android:layout_marginTop="70dp"
-
+        android:layout_marginTop="37dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 

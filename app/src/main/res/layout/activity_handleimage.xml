@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.sebastian.lostfoundapp.Handleimage"
-    android:background="#fee106">
+    android:background="@android:color/holo_blue_light">
 
     <ImageView
         android:layout_width="60dp"

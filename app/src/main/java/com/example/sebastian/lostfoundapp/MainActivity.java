@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity  extends AppCompatActivity {
+public class MainActivity  extends AppCompatActivity implements View.OnClickListener {
     EditText etemails,etpasswords;
+    Button login,regi;
     TextView forgets;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,29 +18,38 @@ public class MainActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         etemails = (EditText) findViewById(R.id.etemail);
         etpasswords = (EditText) findViewById(R.id.etpassword);
+        login=(Button)findViewById(R.id.btn_logi);
+        regi=(Button)findViewById(R.id.btn_regi);
         forgets = (TextView) findViewById(R.id.forget);
-        forgets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Passwordreset.class);
-                startActivity(i);
-            }
-        });
+        login.setOnClickListener(this);
+        regi.setOnClickListener(this);
+        forgets.setOnClickListener(this);
     }
-    public void login(View view){
-        String email=etemails.getText().toString().trim().toLowerCase();
-        String password=etpasswords.getText().toString().trim().toLowerCase();
+    private void login() {
+        String email=etemails.getText().toString();
+        String password=etpasswords.getText().toString();
         String type="login";
-        if(password!=null && password.length()>3){
-            Backgroundtask backgroundworker=new Backgroundtask(this);
-            backgroundworker.execute(type,email,password);
-
-        }else{
-            Toast.makeText(MainActivity.this,"invalid password",Toast.LENGTH_LONG).show();
-
-        }
+        Backgroundtask backgroundtask=new Backgroundtask(this);
+        backgroundtask.execute(type,email,password);
     }
-    public void regi(View view){
+    private void register() {
         startActivity(new Intent(this,Registers.class));
+
+    }
+    private void forget(){
+        Intent i=new Intent(MainActivity.this,Passwordreset.class);
+        startActivity(i);
+    }
+    @Override
+    public void onClick(View v) {
+      if(v==login){
+       login();
+      }
+      else if(v==regi){
+         register();
+      }
+      else if(v==forgets){
+          forget();
+      }
     }
 }
