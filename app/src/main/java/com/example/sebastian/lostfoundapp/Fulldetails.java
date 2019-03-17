@@ -26,7 +26,7 @@ ImageView imgs;
         String descriptions=intent.getExtras().getString("description");
 //setting values to the variables
         Glide.with(this).load(pic).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(imgs);
-        title.setText(titles);
+        title.setText("The identification number is:"+ titles+"," + "kindly visit our nearest M-Tafuta branch for more information, Thank you!!");
         description.setText(descriptions);
     }
 }

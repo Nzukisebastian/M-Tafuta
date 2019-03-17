@@ -56,7 +56,7 @@ public class Fetchdata extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        Main4Activity.data.setText(this.dataparsed);
+        Fragmentreport.data.setText(this.dataparsed);
     }
 }
 

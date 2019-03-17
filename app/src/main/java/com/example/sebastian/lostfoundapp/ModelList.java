@@ -6,7 +6,9 @@ package com.example.sebastian.lostfoundapp;
 public class ModelList{
 
     String id,title,katerangan,img;
-    public ModelList(){};
+    public ModelList(){
+
+    };
     public ModelList(String id, String title, String katerangan, String img) {
         this.id = id;
         this.title = title;

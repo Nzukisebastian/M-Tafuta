@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kosalgeek.android.photoutil.CameraPhoto;
@@ -35,18 +36,22 @@ public class Handleimage extends AppCompatActivity {
     final int CAMERA_REQUEST=13323;
     final int GALLERY_REQUEST=22131;
     String selectedphoto;
+    TextView describe;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handleimage);
-
+        Intent intent=getIntent();
+        email=intent.getExtras().getString("emailid");
         cameraPhoto=new CameraPhoto(getApplicationContext());
         galleryPhoto=new GalleryPhoto(getApplicationContext());
         ivcamera=(ImageView)findViewById(R.id.ivcamera);
         ivgallery=(ImageView)findViewById(R.id.ivgallery);
         ivupload=(ImageView)findViewById(R.id.ivupload);
         ivimage=(ImageView)findViewById(R.id.ivimage);
+        describe=(TextView)findViewById(R.id.details);
 
         ivcamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +76,8 @@ public class Handleimage extends AppCompatActivity {
         ivupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectedphoto==null || selectedphoto.equals("")){
+                String detail=describe.getText().toString();
+                if(selectedphoto==null || selectedphoto.equals("")|| detail==null){
                     Toast.makeText(getApplicationContext(),"choose an image",Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -85,10 +91,10 @@ public class Handleimage extends AppCompatActivity {
                     PostResponseAsyncTask task=new PostResponseAsyncTask(Handleimage.this,postData, new AsyncResponse() {
                         @Override
                         public void processFinish(String s) {
-                            if(s.contains("uploaded success")){
-                                Toast.makeText(getApplicationContext(),"Image uploaded successfully",Toast.LENGTH_LONG).show();
+                            if(s.contains("Successfully Uploaded")){
+                                Toast.makeText(getApplicationContext(),"Image uploaded successfully and Item code has been sent to your email",Toast.LENGTH_LONG).show();
 
-                            }else if(s.contains("uploaded failed")){
+                            }else if(s.contains("not Uploaded")){
                                 Toast.makeText(getApplicationContext(),"Image not uploaded",Toast.LENGTH_LONG).show();
                             }else if(s==null){
                                 Toast.makeText(getApplicationContext(),"Unable to connect to server",Toast.LENGTH_LONG).show();
@@ -96,7 +102,8 @@ public class Handleimage extends AppCompatActivity {
 
                         }
                     });
-                    task.execute("http://ictchops.me.ke/uploadimage.php");
+                    //task.execute("http://ictchops.me.ke/imageupload/upload.php?emails="+email);
+                    task.execute("http://192.168.43.153/imageupload/upload.php?details="+detail);
                     task.setEachExceptionsHandler(new EachExceptionsHandler() {
                         @Override
                         public void handleIOException(IOException e) {

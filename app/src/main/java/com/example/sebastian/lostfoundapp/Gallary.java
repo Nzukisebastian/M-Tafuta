@@ -3,6 +3,8 @@ package com.example.sebastian.lostfoundapp;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -49,7 +51,7 @@ public class Gallary extends BaseActivity {
             public void onResponse(Call<List<DataResponse>> call, Response<List<DataResponse>> response) {
 
                 List<Images>images=response.body().get(1).getImages();
-                adapter=new RecyclerAdapter(images,Gallary.this );
+               adapter=new RecyclerAdapter(images,Gallary.this);
                 recyclerViews.setAdapter(adapter);
                 Toast.makeText(Gallary.this,"first page is loaded...",Toast.LENGTH_LONG).show();
                 ;               progressBar.setVisibility(View.GONE);
@@ -140,4 +142,6 @@ public class Gallary extends BaseActivity {
                     break;
         }
     }
-}
+    }
+
+

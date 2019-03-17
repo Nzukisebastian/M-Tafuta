@@ -18,6 +18,24 @@
             android:title="@string/post_string"/>
 
         <item
+            android:id="@+id/menu_pple"
+            android:orderInCategory="1"
+            app:showAsAction="never"
+            android:title="@string/pple_string"/>
+
+        <item
+            android:id="@+id/menu_miss"
+            android:orderInCategory="1"
+            app:showAsAction="never"
+            android:title="@string/miss_string"/>
+
+
+        <item
+            android:id="@+id/menu_mpesa"
+            android:orderInCategory="1"
+            app:showAsAction="never"
+            android:title="@string/mpesa_string"/>
+        <item
             android:id="@+id/menu_green"
             android:orderInCategory="1"
             app:showAsAction="never"
@@ -28,6 +46,11 @@
             android:orderInCategory="1"
             app:showAsAction="never"
             android:title="@string/yellow_string"/>
+        <item
+            android:id="@+id/menu_logout"
+            android:orderInCategory="1"
+            app:showAsAction="never"
+            android:title="@string/logout_string"/>
 
 
     </group>

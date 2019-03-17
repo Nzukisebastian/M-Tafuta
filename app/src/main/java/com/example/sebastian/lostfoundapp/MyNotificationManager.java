@@ -49,14 +49,14 @@ public class MyNotificationManager {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mCtx);
         Uri soundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Notification notification;
-        notification = mBuilder.setSmallIcon(R.mipmap.ic_launcher).setTicker(title).setWhen(0)
+        notification = mBuilder.setSmallIcon(R.drawable.mtafuta).setTicker(title).setWhen(0)
                 .setAutoCancel(true)
                 .setContentIntent(resultPendingIntent)
                 .setContentTitle(title)
                 .setSound(soundUri)
                 .setStyle(bigPictureStyle)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon(R.drawable.mtafuta)
+                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.mtafuta))
                 .setContentText(message)
                 .build();
 
@@ -82,13 +82,13 @@ public class MyNotificationManager {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mCtx);
         Uri soundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Notification notification;
-        notification = mBuilder.setSmallIcon(R.mipmap.ic_launcher).setTicker(title).setWhen(0)
+        notification = mBuilder.setSmallIcon(R.drawable.mtafuta).setTicker(title).setWhen(0)
                 .setAutoCancel(true)
                 .setContentIntent(resultPendingIntent)
                 .setContentTitle(title)
                 .setSound(soundUri)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon(R.drawable.mtafuta)
+                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.mtafuta))
                 .setContentText(message)
                 .build();
 

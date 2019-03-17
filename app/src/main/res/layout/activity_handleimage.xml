@@ -11,37 +11,52 @@
     android:background="@android:color/holo_blue_light">
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/ivcamera"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@android:drawable/ic_menu_camera"/>
+android:layout_width="60dp"
+android:layout_height="60dp"
+android:id="@+id/ivcamera"
+android:layout_alignParentTop="true"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+android:src="@android:drawable/ic_menu_camera"/>
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/ivupload"
-        android:src="@android:drawable/ic_menu_upload"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+<ImageView
+android:layout_width="60dp"
+android:layout_height="60dp"
+android:id="@+id/ivupload"
+android:src="@android:drawable/ic_menu_upload"
+android:layout_alignParentTop="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/ivgallery"
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+<ImageView
+android:layout_width="60dp"
+android:layout_height="60dp"
+android:id="@+id/ivgallery"
+android:src="@android:drawable/ic_menu_gallery"
+android:layout_alignParentTop="true"
+android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="230dp"
-        android:layout_height="300dp"
-        android:id="@+id/ivimage"
-        android:src="@android:drawable/star_big_on"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_centerInParent="true"
+android:orientation="vertical">
 
-</RelativeLayout>
+<ImageView
+    android:id="@+id/ivimage"
+    android:layout_width="230dp"
+    android:layout_height="300dp"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:src="@android:drawable/star_big_on" />
+
+<EditText
+    android:id="@+id/details"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="textMultiLine"
+    android:hint="Give descriptive details" />
+</LinearLayout>
+
+    </RelativeLayout>

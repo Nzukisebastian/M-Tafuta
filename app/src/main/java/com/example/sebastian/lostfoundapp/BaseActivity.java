@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.kosalgeek.android.photoutil.MainActivity;
+
 /**
  * Created by SEBASTIAN on 7/9/2018.
  */
@@ -26,7 +28,7 @@ public class BaseActivity extends AppCompatActivity implements LogoutListener {
     @Override
     public void onSessionLogout() {
         finish();
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
 
     }
 }

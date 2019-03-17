@@ -26,6 +26,7 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
     AlertDialog alertDialog;
     ProgressDialog progressDialog;
     ProgressDialog loading;
+    String email;
     Backgroundtask(Context ctx){
         context = ctx;
     }
@@ -42,7 +43,7 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
         String register_url = "http://ictchops.me.ke/register.php";
         if(type.equals("login")){
             try{
-                String email = params[1];
+                email = params[1];
                 String password = params[2];
                 URL url = new URL(login_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -73,7 +74,7 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
             }
         }else if(type.equals("register")){
             try{
-                String email = params[1];
+                String emails = params[1];
                 String password = params[2];
                 String phone=params[3];
                 String fullname=params[4];
@@ -86,7 +87,7 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
                 String post_data = URLEncoder.encode("fullname","UTF-8")+"="+URLEncoder.encode(fullname,"UTF-8")+"&"
-                        +URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8")+"&"+URLEncoder.encode("email","UTF-8")+"="+URLEncoder.encode(email,"UTF-8")
+                        +URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8")+"&"+URLEncoder.encode("email","UTF-8")+"="+URLEncoder.encode(emails,"UTF-8")
                         +"&"+URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode(phone,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
@@ -114,7 +115,8 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
             progressDialog.dismiss();
         if(result!=null && result.equals("login success")){
             Toast.makeText(context,result,Toast.LENGTH_LONG).show();
-        Intent i=new Intent(context,Gallary.class);
+        Intent i=new Intent(context,Fragmentgallary.class);
+            i.putExtra("emailid",email);
         context.startActivity(i);
 
     }else if(result!=null && result.equals("successfully registred")){
@@ -125,11 +127,13 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
 
         else if(result==null){
             Toast.makeText(context,"check your network connection",Toast.LENGTH_LONG).show();
+            Intent i=new Intent(context,Fragmentgallary.class);
+            context.startActivity(i);
         }
         else{
             Toast.makeText(context,result,Toast.LENGTH_LONG).show();
         }
-        //we are
+
     }
 
     @Override

@@ -39,6 +39,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="text"
         android:id="@+id/etname"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -61,6 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etphone"
+        android:inputType="phone"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/etname"
@@ -94,6 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etemail"
+        android:inputType="textEmailAddress"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -135,6 +138,5 @@
         android:textColor="#fafafd"
         android:layout_alignLeft="@+id/buttonSubmit"
         android:layout_alignStart="@+id/buttonSubmit" />
-
 
 </RelativeLayout>

@@ -23,12 +23,14 @@ import java.util.List;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
-    private List<Images> imagesList;
-    private Context context;
-    public RecyclerAdapter(List<Images>imagesList,Context context){
-        this.imagesList=imagesList;
+    List<Images> imagesList;
+    Context context;
+
+    public RecyclerAdapter(List<Images> images, Context context) {
+        this.imagesList=images;
         this.context=context;
     }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
@@ -39,7 +41,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         final Images image=imagesList.get(position);
-        holder.AlbumTitle.setText("image"+ image.getImageid());
+        holder.AlbumTitle.setText("Claim Ownership");
         Glide.with(context).load(image.getImagepath()).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.Album);
    holder.cardView.setOnClickListener(new View.OnClickListener() {
        @Override

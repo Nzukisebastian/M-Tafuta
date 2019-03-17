@@ -15,7 +15,7 @@ EditText report;
     public void report(View view){
       String reports=report.getText().toString();
         String type="send";
-        Reportbackground backgroundworker=new Reportbackground(this);
-        backgroundworker.execute(type,reports);
+        Reportbackground reportbackground=new Reportbackground(this);
+        reportbackground.execute(type,reports);
     }
 }

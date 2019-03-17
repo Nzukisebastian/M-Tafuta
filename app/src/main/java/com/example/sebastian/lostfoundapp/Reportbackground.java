@@ -34,7 +34,7 @@ public class Reportbackground extends AsyncTask<String,Void,String> {
 
     protected void onPreExecute() {
         // loading = ProgressDialog.show(context,"Downloading images...","Please wait...",true,true);
-        progressDialog=ProgressDialog.show(context,"uploading...","Please wait...",true,true);
+       progressDialog=ProgressDialog.show(context,"uploading...","Please wait...",true,true);
     }
     @Override
     protected String doInBackground(String... params) {
@@ -43,7 +43,7 @@ public class Reportbackground extends AsyncTask<String,Void,String> {
         String report_url = "http://ictchops.me.ke/report.php";
         if(type.equals("send")){
             try{
-                String report = params[1];
+                String reports = params[1];
                 URL url = new URL(report_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
@@ -51,7 +51,7 @@ public class Reportbackground extends AsyncTask<String,Void,String> {
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-                String post_data = URLEncoder.encode("report","UTF-8")+"="+URLEncoder.encode(report,"UTF-8");
+                String post_data = URLEncoder.encode("report","UTF-8")+"="+URLEncoder.encode(reports,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -74,10 +74,14 @@ public class Reportbackground extends AsyncTask<String,Void,String> {
         return null;
     }
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(String r) {
         progressDialog.dismiss();
-        if(result!=null){
-            Toast.makeText(context,result,Toast.LENGTH_LONG).show();
+        if(r.equals("successfully uploaded")){
+            Toast.makeText(context,r,Toast.LENGTH_LONG).show();
+
+        }
+        if(r.equals("upload failed")){
+            Toast.makeText(context,r,Toast.LENGTH_LONG).show();
 
         }else{
             Toast.makeText(context,"check your network connection",Toast.LENGTH_LONG).show();

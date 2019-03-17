@@ -6,9 +6,9 @@ package com.example.sebastian.lostfoundapp;
 public class EndPoints {
 
 
-        public static final String URL_REGISTER_DEVICE = "http://10.0.2.2/FcmExample/RegisterDevice.php";
-        public static final String URL_SEND_SINGLE_PUSH = "http://10.0.2.2/FcmExample/sendSinglePush.php";
-        public static final String URL_SEND_MULTIPLE_PUSH = "http://10.0.2.2/FcmExample/sendMultiplePush.php";
-        public static final String URL_FETCH_DEVICES = "http://10.0.2.2/FcmExample/GetRegisteredDevices.php";
+        public static final String URL_REGISTER_DEVICE = "http://ictchops.me.ke/FcmExample/RegisterDevice.php";
+        public static final String URL_SEND_SINGLE_PUSH = "http://ictchops.me.ke/FcmExample/sendSinglePush.php";
+        public static final String URL_SEND_MULTIPLE_PUSH = "http://ictchops.me.ke/FcmExample/sendMultiplePush.php";
+        public static final String URL_FETCH_DEVICES = "http://ictchops.me.ke/FcmExample/GetRegisteredDevices.php";
 
 }
