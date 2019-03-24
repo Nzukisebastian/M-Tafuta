@@ -115,7 +115,7 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
             progressDialog.dismiss();
         if(result!=null && result.equals("login success")){
             Toast.makeText(context,result,Toast.LENGTH_LONG).show();
-        Intent i=new Intent(context,Fragmentgallary.class);
+        Intent i=new Intent(context,Fragmentgallarys.class);
             i.putExtra("emailid",email);
         context.startActivity(i);
 
@@ -127,8 +127,6 @@ public class Backgroundtask extends AsyncTask<String,Void,String> {
 
         else if(result==null){
             Toast.makeText(context,"check your network connection",Toast.LENGTH_LONG).show();
-            Intent i=new Intent(context,Fragmentgallary.class);
-            context.startActivity(i);
         }
         else{
             Toast.makeText(context,result,Toast.LENGTH_LONG).show();

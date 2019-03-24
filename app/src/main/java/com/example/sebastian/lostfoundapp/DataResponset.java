@@ -23,6 +23,12 @@ class Imagest{
     private String Imageid;
     @SerializedName("image")
     private  String Imagepath;
+    @SerializedName("details")
+    private  String details;
+
+    public String getDetails() {
+        return details;
+    }
 
     public String getImageid() {
         return Imageid;

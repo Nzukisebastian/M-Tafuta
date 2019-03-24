@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Unidentified person!"
+            android:text="Help us to trace it!"
             android:textColor="#FD0303"
             android:textStyle="bold" />
 

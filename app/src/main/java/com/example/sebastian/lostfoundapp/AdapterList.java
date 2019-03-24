@@ -35,7 +35,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.HolderItem>{
     @Override
     public void onBindViewHolder(final HolderItem holder, final int position) {
          final ModelList mlist=mListItem.get(position);
-        holder.tv_title.setText(mlist.getTitle());
+        holder.tv_title.setText("Code:"+mlist.getTitle());
         holder.tv_katerangan.setText(mlist.getKaterangan());
         /*loading image*/
        Glide.with(context).load(mlist.getImg()).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.thubnail);
@@ -44,8 +44,8 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.HolderItem>{
             public void onClick(View v) {
                 Intent intent=new Intent(context,Fulldetails.class);
                 intent.putExtra("img",mlist.getImg());
-                intent.putExtra("title",mlist.getTitle());
-                intent.putExtra("description",mlist.getKaterangan());
+               // intent.putExtra("title",mlist.getTitle());
+                intent.putExtra("details",mlist.getKaterangan());
                 context.startActivity(intent);
 
             }

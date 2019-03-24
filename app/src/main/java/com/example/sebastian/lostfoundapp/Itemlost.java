@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kosalgeek.android.photoutil.CameraPhoto;
@@ -25,20 +26,22 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.util.HashMap;
 
-public class Ppleimage extends AppCompatActivity {
+public class Itemlost extends AppCompatActivity {
     private final String TAG=this.getClass().getName();
+
     ImageView ivcamera,ivgallery,ivupload,ivimage;
     GalleryPhoto galleryPhoto;
     CameraPhoto cameraPhoto;
     final int CAMERA_REQUEST=13323;
     final int GALLERY_REQUEST=22131;
     String selectedphoto;
+    TextView describe;
     String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ppleimage);
+        setContentView(R.layout.activity_itemlost);
         Intent intent=getIntent();
         email=intent.getExtras().getString("emailid");
         cameraPhoto=new CameraPhoto(getApplicationContext());
@@ -47,6 +50,7 @@ public class Ppleimage extends AppCompatActivity {
         ivgallery=(ImageView)findViewById(R.id.ivgallery);
         ivupload=(ImageView)findViewById(R.id.ivupload);
         ivimage=(ImageView)findViewById(R.id.ivimage);
+        describe=(TextView)findViewById(R.id.details);
 
         ivcamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +81,14 @@ public class Ppleimage extends AppCompatActivity {
                 }
                 try {
 
+                    String detail=describe.getText().toString();
                     Bitmap bitmap= ImageLoader.init().from(selectedphoto).requestSize(1024,1024).getBitmap();
                     String encodeimage= ImageBase64.encode(bitmap);
                     Log.d(TAG,encodeimage);
                     HashMap<String,String> postData=new HashMap<String, String>();
                     postData.put("image",encodeimage);
-                    PostResponseAsyncTask task=new PostResponseAsyncTask(Ppleimage.this,postData, new AsyncResponse() {
+                    postData.put("details",detail);
+                    PostResponseAsyncTask task=new PostResponseAsyncTask(Itemlost.this,postData, new AsyncResponse() {
                         @Override
                         public void processFinish(String s) {
                             if(s.contains("Successfully Uploaded")){
@@ -96,7 +102,8 @@ public class Ppleimage extends AppCompatActivity {
 
                         }
                     });
-                    task.execute("http://ictchops.me.ke/imageupload/ppleupload.php?emails="+email);
+                    task.execute("http://ictchops.me.ke/imageupload/lostitem.php?emails="+email);
+                    // task.execute("http://ictchops.me.ke/imageupload/upload.php?details="+detail);
                     task.setEachExceptionsHandler(new EachExceptionsHandler() {
                         @Override
                         public void handleIOException(IOException e) {
@@ -160,4 +167,5 @@ public class Ppleimage extends AppCompatActivity {
             }
         }
     }
+
 }

@@ -1,5 +1,8 @@
 package com.example.sebastian.lostfoundapp;
 
+/**
+ * Created by SEBASTIAN on 7/4/2018.
+ */
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -16,34 +19,33 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 /**
- * Created by Nzuki on 9/20/2018.
+ * Created by SEBASTIAN on 6/29/2018.
  */
-public class RecyclerAdapterp extends RecyclerView.Adapter<RecyclerAdapterp.MyViewHolder> {
+public class RecyclerAdapteri extends RecyclerView.Adapter<RecyclerAdapteri.MyViewHolder> {
 
-
-    List<Imagesp> imagesList;
+    List<Imagesi> imagesList;
     Context context;
 
-    public RecyclerAdapterp(List<Imagesp> images, Context context) {
+    public RecyclerAdapteri(List<Imagesi> images, Context context) {
         this.imagesList=images;
         this.context=context;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlost_layout,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        final Imagesp image=imagesList.get(position);
+        final Imagesi image=imagesList.get(position);
         String code=image.getImageid();
         String details=image.getDetails();
         holder.code.setText("code:"+code);
         holder.details.setText(details+"...");
-
+        //holder.AlbumTitle.setText("Report to the  nearest police now!");
         Glide.with(context).load(image.getImagepath()).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.Album);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,7 @@ public class RecyclerAdapterp extends RecyclerView.Adapter<RecyclerAdapterp.MyVi
                 context.startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -75,10 +78,11 @@ public class RecyclerAdapterp extends RecyclerView.Adapter<RecyclerAdapterp.MyVi
 
         }
     }
-    public void addImages(List<Imagesp>images){
-        for(Imagesp im : images){
+    public void addImages(List<Imagesi>images){
+        for(Imagesi im : images){
             imagesList.add(im);
         }
         notifyDataSetChanged();
     }
+
 }

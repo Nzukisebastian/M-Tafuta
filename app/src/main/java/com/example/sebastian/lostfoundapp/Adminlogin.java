@@ -1,19 +1,19 @@
 package com.example.sebastian.lostfoundapp;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Adminreg extends AppCompatActivity implements View.OnClickListener {
-
+public class Adminlogin extends AppCompatActivity implements View.OnClickListener  {
     EditText etemails,etpasswords;
     Button login,regi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adminreg);
+        setContentView(R.layout.activity_adminlogin);
         etemails = (EditText) findViewById(R.id.etemail);
         etpasswords = (EditText) findViewById(R.id.etpassword);
         login=(Button)findViewById(R.id.btn_logi);

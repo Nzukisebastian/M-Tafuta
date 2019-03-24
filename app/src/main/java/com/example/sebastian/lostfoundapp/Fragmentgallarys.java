@@ -10,13 +10,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
 
 import com.kosalgeek.android.photoutil.MainActivity;
 
-public class Fragmentgallary extends AppCompatActivity {
-
+public class Fragmentgallarys extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private  WebPagerAdater adapter;
@@ -25,22 +22,21 @@ public class Fragmentgallary extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragmentgallary);
+        setContentView(R.layout.activity_fragmentgallarys);
         Intent intent=getIntent();
-       email=intent.getExtras().getString("emailid");
+        email=intent.getExtras().getString("emailid");
         //main_view.setBackgroundColor(Color.RED);
         tabLayout=(TabLayout) findViewById(R.id.tablayout_id);
         viewPager=(ViewPager)findViewById(R.id.viewpager_id);
         adapter=new WebPagerAdater(getSupportFragmentManager());
-        adapter.AddFragment(new Fragmentpic(),"Wanted Criminals");
-        adapter.AddFragment(new Fragmentreport(),"Items Reports");
-        adapter.AddFragment(new Fragmentppl(),"Missing Persons");
-        adapter.AddFragment(new Fragmenttrace(),"Unidentified Persons");
+        adapter.AddFragment(new Fragmentpic(),"wanted criminals");
+        adapter.AddFragment(new Fragmentitemlost(),"found items");
+        adapter.AddFragment(new Fragmentppl(),"missing persons");
+        adapter.AddFragment(new Fragmenttrace(),"unidentified persons");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         ActionBar actionBar=getSupportActionBar();
-        actionBar.  setElevation(0);
-
+        actionBar.setElevation(0);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,8 +71,8 @@ public class Fragmentgallary extends AppCompatActivity {
                 else
                     item.setChecked(true);
                 Intent i = new Intent(this, Handleimage.class);
-              i.putExtra("emailid",email);
-              startActivity(i);
+                i.putExtra("emailid",email);
+                startActivity(i);
                 // main_view.setBackgroundColor(Color.GREEN);
                 return true;
             case R.id.menu_yellow:
@@ -101,7 +97,7 @@ public class Fragmentgallary extends AppCompatActivity {
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                Intent pple = new Intent(this, Handleimage.class);
+                Intent pple = new Intent(this, Itemlost.class);
                 pple.putExtra("emailid",email);
                 startActivity(pple);
                 //main_view.setBackgroundColor(Color.YELLOW);
@@ -113,7 +109,7 @@ public class Fragmentgallary extends AppCompatActivity {
                     item.setChecked(true);
                 Intent miss = new Intent(this,Missing.class);
                 miss.putExtra("emailid",email);
-               startActivity(miss);
+                startActivity(miss);
                 //main_view.setBackgroundColor(Color.YELLOW);
                 return true;
             case R.id.menu_logout:

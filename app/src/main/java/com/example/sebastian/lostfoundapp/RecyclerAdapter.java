@@ -33,7 +33,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.criminal_layout,parent,false);
         return new MyViewHolder(view);
     }
 
@@ -41,13 +41,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         final Images image=imagesList.get(position);
-        holder.AlbumTitle.setText("Claim Ownership");
+        String code=image.getImageid();
+        String details=image.getDetails();
+        holder.code.setText("code:"+code);
+        holder.details.setText(details+"...");
+        //holder.AlbumTitle.setText("Report to the  nearest police now!");
         Glide.with(context).load(image.getImagepath()).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.Album);
    holder.cardView.setOnClickListener(new View.OnClickListener() {
        @Override
        public void onClick(View v) {
            Intent intent=new Intent(context,Fulldetails.class);
-           intent.putExtra("title",image.getImageid());
+           intent.putExtra("details",image.getDetails());
            intent.putExtra("img",image.getImagepath());
            context.startActivity(intent);
        }
@@ -62,11 +66,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         CardView cardView;
         ImageView Album;
-        TextView AlbumTitle ;
+        TextView details ;
+        TextView code ;
         public MyViewHolder(View itemView) {
             super(itemView);
             Album= (ImageView) itemView.findViewById(R.id.album_image);
-            AlbumTitle= (TextView) itemView.findViewById(R.id.album_title);
+            details= (TextView) itemView.findViewById(R.id.album_title);
+            code= (TextView) itemView.findViewById(R.id.code);
             cardView=(CardView) itemView.findViewById(R.id.cardview);
 
 

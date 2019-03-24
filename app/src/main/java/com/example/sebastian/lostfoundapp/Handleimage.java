@@ -76,18 +76,21 @@ public class Handleimage extends AppCompatActivity {
         ivupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String detail=describe.getText().toString();
-                if(selectedphoto==null || selectedphoto.equals("")|| detail==null){
+
+                if(selectedphoto==null || selectedphoto.equals("")){
                     Toast.makeText(getApplicationContext(),"choose an image",Toast.LENGTH_LONG).show();
                     return;
                 }
                 try {
 
+                    String detail=describe.getText().toString();
                     Bitmap bitmap= ImageLoader.init().from(selectedphoto).requestSize(1024,1024).getBitmap();
                     String encodeimage= ImageBase64.encode(bitmap);
                     Log.d(TAG,encodeimage);
                     HashMap<String,String> postData=new HashMap<String, String>();
                     postData.put("image",encodeimage);
+                    postData.put("details",detail);
+
                     PostResponseAsyncTask task=new PostResponseAsyncTask(Handleimage.this,postData, new AsyncResponse() {
                         @Override
                         public void processFinish(String s) {
@@ -102,8 +105,8 @@ public class Handleimage extends AppCompatActivity {
 
                         }
                     });
-                    //task.execute("http://ictchops.me.ke/imageupload/upload.php?emails="+email);
-                    task.execute("http://192.168.43.153/imageupload/upload.php?details="+detail);
+                    task.execute("http://ictchops.me.ke/imageupload/upload.php?emails="+email);
+                    //task.execute("http://ictchops.me.ke/imageupload/upload.php?details="+detail);
                     task.setEachExceptionsHandler(new EachExceptionsHandler() {
                         @Override
                         public void handleIOException(IOException e) {

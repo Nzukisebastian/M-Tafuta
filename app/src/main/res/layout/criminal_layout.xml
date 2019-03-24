@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Unidentified person!"
+            android:text="Report to the nearest police station now!"
             android:textColor="#FD0303"
             android:textStyle="bold" />
 

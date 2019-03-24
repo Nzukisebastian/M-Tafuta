@@ -25,7 +25,7 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 finish();
-                startActivity(new Intent(getApplicationContext(),Link.class));
+                startActivity(new Intent(getApplicationContext(),Admins.class));
 
             }
 

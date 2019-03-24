@@ -2,13 +2,17 @@ package com.example.sebastian.lostfoundapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,7 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main2Activity extends AppCompatActivity implements View.OnClickListener  {
+public class FragmentAdminUnidentifiedPerson extends Fragment implements View.OnClickListener  {
 
     ImageView ivadd,ivfind,ivdelete;
     RecyclerView mRecyclerview;
@@ -33,31 +37,39 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     RecyclerView.LayoutManager mManager;
     RequestQueue mRequest;
     List<ModelList> mListitems;
+    View v;
+    ProgressBar progressBar;
+    public FragmentAdminUnidentifiedPerson() {
+    }
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        editTextId = (EditText) findViewById(R.id.editTextId);
-        ivadd=(ImageView)findViewById(R.id.ivadd);
-        ivdelete=(ImageView)findViewById(R.id.ivdelete);
-        ivfind=(ImageView)findViewById(R.id.ivsearch);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.fragmentadmincriminal, container, false);
+        editTextId = (EditText)v. findViewById(R.id.editTextId);
+        ivadd=(ImageView)v.findViewById(R.id.ivadd);
+        ivdelete=(ImageView)v.findViewById(R.id.ivdelete);
+        ivfind=(ImageView)v.findViewById(R.id.ivsearch);
         ivdelete.setOnClickListener(this);
         ivadd.setOnClickListener(this);
         ivfind.setOnClickListener(this);
-        mRecyclerview=(RecyclerView)findViewById(R.id.recyclerTemp);
-        mRecyclerview=(RecyclerView)findViewById(R.id.recyclerTemp);
-        mRequest= Volley.newRequestQueue(getApplicationContext());
+        mRecyclerview=(RecyclerView)v.findViewById(R.id.recyclerTemp);
+        progressBar=(ProgressBar) v.findViewById(R.id.pb);
+        mRequest= Volley.newRequestQueue(getActivity());
         mListitems=new ArrayList<>();
         //request();
-        mManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        mManager=new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         mRecyclerview.setLayoutManager(mManager);
-        mAdapter=new AdapterList(mListitems,Main2Activity.this);
+        mAdapter=new AdapterList(mListitems,getActivity());
         mRecyclerview.setAdapter(mAdapter);
+        return v;
     }
+
     private void request(){
-       // int id =6;
+        progressBar.setVisibility(View.VISIBLE);
+        // int id =6;
         String id = editTextId.getText().toString().trim();
-        final String url="http://ictchops.me.ke/imageupload/getallimages.php?ids="+id;
+        final String url="http://ictchops.me.ke/gallaryapp/scripts/adminunidentifiedperson.php?ids="+id;
         JsonArrayRequest requestimage=new JsonArrayRequest(Request.Method.POST, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -75,6 +87,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                         model.setImg(data.getString("image"));
                         //adding the object to List for storage
                         mListitems.add(model);
+                        progressBar.setVisibility(View.GONE);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -92,22 +105,23 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         mRequest.add(requestimage);
     }
 
+
     public void info(View view){
 
-        startActivity(new Intent(this, Main4Activity.class));
+        startActivity(new Intent(getActivity(), Main4Activity.class));
     }
 
     private void add(){
         String code=editTextId.getText().toString();
         String type="add";
-        Adminbackend adminbackend=new Adminbackend(this);
+        Adminbackend adminbackend=new Adminbackend(getActivity());
         adminbackend.execute(type,code);
     }
 
     private void delete(){
         String code=editTextId.getText().toString();
         String type="delete";
-        Adminbackend adminbackend=new Adminbackend(this);
+        Adminbackend adminbackend=new Adminbackend(getActivity());
         adminbackend.execute(type,code);
     }
     @Override
@@ -121,5 +135,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         else if(v==ivfind){
             request();
         }
+    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
     }
 }

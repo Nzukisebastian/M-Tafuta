@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    tools:context=".Admins">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView android:src="@drawable/mtafuta"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="65dp"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_logi"
+        android:text="User"
+        android:layout_gravity="left"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/background_light"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_admin"
+        android:text="Staff"
+        android:layout_gravity="left"
+        android:background="@android:color/background_light"
+        android:layout_below="@+id/btn_logi"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView android:id="@+id/link_signup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Who are you to our system ?"
+        android:gravity="center"
+        android:textSize="25dip"
+        android:textColor="#fbf8f8"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

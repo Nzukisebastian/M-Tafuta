@@ -1,4 +1,5 @@
 package com.example.sebastian.lostfoundapp;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -25,22 +26,21 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.util.HashMap;
 
-public class Missing extends AppCompatActivity {
+public class Unidentified extends AppCompatActivity {
     private final String TAG=this.getClass().getName();
-
     ImageView ivcamera,ivgallery,ivupload,ivimage;
     GalleryPhoto galleryPhoto;
     CameraPhoto cameraPhoto;
     final int CAMERA_REQUEST=13323;
     final int GALLERY_REQUEST=22131;
     String selectedphoto;
-    TextView describe;
     String email;
+    TextView describe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_missing);
+        setContentView(R.layout.activity_unidentified);
         Intent intent=getIntent();
         email=intent.getExtras().getString("emailid");
         cameraPhoto=new CameraPhoto(getApplicationContext());
@@ -87,7 +87,7 @@ public class Missing extends AppCompatActivity {
                     HashMap<String,String> postData=new HashMap<String, String>();
                     postData.put("image",encodeimage);
                     postData.put("details",detail);
-                    PostResponseAsyncTask task=new PostResponseAsyncTask(Missing.this,postData, new AsyncResponse() {
+                    PostResponseAsyncTask task=new PostResponseAsyncTask(Unidentified.this,postData, new AsyncResponse() {
                         @Override
                         public void processFinish(String s) {
                             if(s.contains("Successfully Uploaded")){
@@ -101,8 +101,7 @@ public class Missing extends AppCompatActivity {
 
                         }
                     });
-                    task.execute("http://ictchops.me.ke/imageupload/miss.php?emails="+email);
-                   // task.execute("http://ictchops.me.ke/imageupload/upload.php?details="+detail);
+                    task.execute("http://ictchops.me.ke/imageupload/ppleupload.php?emails="+email);
                     task.setEachExceptionsHandler(new EachExceptionsHandler() {
                         @Override
                         public void handleIOException(IOException e) {
@@ -134,6 +133,7 @@ public class Missing extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -165,5 +165,4 @@ public class Missing extends AppCompatActivity {
             }
         }
     }
-
 }

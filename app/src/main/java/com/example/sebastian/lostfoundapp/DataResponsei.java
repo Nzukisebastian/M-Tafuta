@@ -1,18 +1,17 @@
 package com.example.sebastian.lostfoundapp;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by SEBASTIAN on 6/29/2018.
- */
-public class DataResponse{
+public class DataResponsei {
+
     @SerializedName("status")
     private String status;
     @SerializedName("images")
-    List<Images>Images;
+    List<Imagesi> Images;
 
-    public List<com.example.sebastian.lostfoundapp.Images> getImages() {
+    public List<com.example.sebastian.lostfoundapp.Imagesi> getImages() {
         return Images;
     }
 
@@ -20,7 +19,7 @@ public class DataResponse{
         return status;
     }
 }
-class Images{
+class Imagesi{
     @SerializedName("token")
     private String Imageid;
     @SerializedName("image")

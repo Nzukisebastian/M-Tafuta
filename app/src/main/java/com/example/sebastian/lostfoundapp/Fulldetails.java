@@ -16,17 +16,15 @@ ImageView imgs;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fulldetails);
-        title=(TextView)findViewById(R.id.idtitle);
         description=(TextView)findViewById(R.id.iddescription);
         imgs=(ImageView)findViewById(R.id.pic);
         //receiving data
         Intent intent=getIntent();
         String pic=intent.getExtras().getString("img");
-        String titles=intent.getExtras().getString("title");
-        String descriptions=intent.getExtras().getString("description");
+        String details=intent.getExtras().getString("details");
 //setting values to the variables
         Glide.with(this).load(pic).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(imgs);
-        title.setText("The identification number is:"+ titles+"," + "kindly visit our nearest M-Tafuta branch for more information, Thank you!!");
-        description.setText(descriptions);
+        //title.setText("The identification number is:"+ titles+"," + "kindly visit our nearest M-Tafuta branch for more information, Thank you!!");
+        description.setText(details);
     }
 }
