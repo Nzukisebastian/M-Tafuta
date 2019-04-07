@@ -2,14 +2,18 @@
     <string name="app_name">M-Tafuta</string>
     <string name="found_Items"><u><b><i>Found_items</i></b></u></string>
     <string name="action_settings">Settings</string>
-    <string name="red_string">Report lost item</string>
-    <string name="post_string">Post a photo of a found item</string>
+    <string name="foundproperty_string">Found Property</string>
+    <string name="found_string">Report lost and found Property</string>
+    <string name="post_string">Report Lost Property</string>
     <string name="pple_string">Post photo of a unidentified person </string>
     <string name="miss_string">Post a photo of a missing Person</string>
     <string name="mpesa_string">Lipa na M-pesa</string>
     <string name="green_string">Call customer care</string>
-    <string name="yellow_string">Message Customer care</string>
+    <string name="yellow_string">Post a photo of wanted criminal</string>
     <string name="logout_string">Logout</string>
+
+    <string name="action_settinga">Settings</string>
+    <string name="foundpropertyadmin_string">Found Property</string>
 
     <string name="nameerror">Enter Valid Name</string>
     <string name="emailerror">Enter Valid Email</string>

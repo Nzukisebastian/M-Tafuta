@@ -49,12 +49,14 @@ public class Fragmentgallarys extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         LinearLayout main_view=(LinearLayout) findViewById(R.id.main_view);
         switch(item.getItemId()){
-            case R.id.menu_red:
+            case R.id.menu_found:
                 if(item.isChecked())
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                startActivity(new Intent(this,Report.class));
+                Intent found = new Intent(this, Founditem.class);
+                found.putExtra("emailid",email);
+                startActivity(found);
                 //main_view.setBackgroundColor(Color.RED);
                 return true;
             case R.id.menu_green:
@@ -65,12 +67,23 @@ public class Fragmentgallarys extends AppCompatActivity {
                 startActivity(new Intent(this,Phonecall.class));
                 // main_view.setBackgroundColor(Color.GREEN);
                 return true;
+
+            case R.id.menu_foundproperty:
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                startActivity(new Intent(this,FounditemActivity.class));
+                // main_view.setBackgroundColor(Color.GREEN);
+                return true;
+
             case R.id.menu_pple:
                 if(item.isChecked())
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                Intent i = new Intent(this, Handleimage.class);
+                //Intent i = new Intent(this, Handleimage.class);
+                Intent i = new Intent(this,Unidentified.class);
                 i.putExtra("emailid",email);
                 startActivity(i);
                 // main_view.setBackgroundColor(Color.GREEN);
@@ -80,7 +93,9 @@ public class Fragmentgallarys extends AppCompatActivity {
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                startActivity(new Intent(this,Msg.class));
+                Intent criminal = new Intent(this,Handleimage.class);
+                criminal.putExtra("emailid",email);
+                startActivity(criminal);
                 //main_view.setBackgroundColor(Color.YELLOW);
                 return true;
 

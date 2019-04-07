@@ -114,14 +114,14 @@ public class FragmentadminFoundItems extends Fragment implements View.OnClickLis
     private void add(){
         String code=editTextId.getText().toString();
         String type="add";
-        Adminbackend adminbackend=new Adminbackend(getActivity());
+        FragmentadminCriminalBackend adminbackend=new FragmentadminCriminalBackend(getActivity());
         adminbackend.execute(type,code);
     }
 
     private void delete(){
         String code=editTextId.getText().toString();
         String type="delete";
-        Adminbackend adminbackend=new Adminbackend(getActivity());
+        FragmentadminCriminalBackend adminbackend=new FragmentadminCriminalBackend(getActivity());
         adminbackend.execute(type,code);
     }
     @Override

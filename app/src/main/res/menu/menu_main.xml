@@ -5,11 +5,17 @@
 
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/menu_red"
+            android:id="@+id/menu_foundproperty"
             android:orderInCategory="1"
             app:showAsAction="never"
-            android:title="@string/red_string"/>
+            android:title="@string/foundproperty_string"/>
+        <item
+            android:id="@+id/menu_found"
+            android:orderInCategory="1"
+            app:showAsAction="never"
+            android:title="@string/found_string"/>
 
         <item
             android:id="@+id/menu_post"

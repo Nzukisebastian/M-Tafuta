@@ -114,14 +114,14 @@ public class FragmentAdminUnidentifiedPerson extends Fragment implements View.On
     private void add(){
         String code=editTextId.getText().toString();
         String type="add";
-        Adminbackend adminbackend=new Adminbackend(getActivity());
+        AdminUnidentifiedPersonbackend adminbackend=new AdminUnidentifiedPersonbackend(getActivity());
         adminbackend.execute(type,code);
     }
 
     private void delete(){
         String code=editTextId.getText().toString();
         String type="delete";
-        Adminbackend adminbackend=new Adminbackend(getActivity());
+        AdminUnidentifiedPersonbackend adminbackend=new AdminUnidentifiedPersonbackend(getActivity());
         adminbackend.execute(type,code);
     }
     @Override

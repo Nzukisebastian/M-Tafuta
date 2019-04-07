@@ -114,14 +114,14 @@ public class FragmentAdminMissingPerson extends Fragment implements View.OnClick
     private void add(){
         String code=editTextId.getText().toString();
         String type="add";
-        Adminbackend adminbackend=new Adminbackend(getActivity());
+        FragmentAdminMissingPersonBackend adminbackend=new FragmentAdminMissingPersonBackend(getActivity());
         adminbackend.execute(type,code);
     }
 
     private void delete(){
         String code=editTextId.getText().toString();
         String type="delete";
-        Adminbackend adminbackend=new Adminbackend(getActivity());
+        FragmentAdminMissingPersonBackend adminbackend=new FragmentAdminMissingPersonBackend(getActivity());
         adminbackend.execute(type,code);
     }
     @Override

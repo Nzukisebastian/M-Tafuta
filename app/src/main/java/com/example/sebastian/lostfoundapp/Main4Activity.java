@@ -36,7 +36,7 @@ public class Main4Activity extends BaseActivity{
     public boolean onOptionsItemSelected(MenuItem item){
         RelativeLayout main_view=(RelativeLayout)findViewById(R.id.main_view);
         switch(item.getItemId()){
-            case R.id.menu_red:
+            case R.id.menu_found:
                 if(item.isChecked())
                     item.setChecked(false);
                 else
